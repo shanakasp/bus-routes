@@ -346,9 +346,9 @@ const MapComponent = () => {
         <div style={{ marginBottom: "1rem" }}>
           <p>Instructions:</p>
           <ul>
-            <li>Search for a starting location</li>
             <li>Click to start drawing</li>
             <li>Press Enter to stop drawing</li>
+            <li>Click Export to export the route</li>
           </ul>
         </div>
 
