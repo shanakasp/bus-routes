@@ -309,7 +309,7 @@ const MapComponent = () => {
         }}
       >
         <div className="search-box" style={{ marginBottom: "1rem" }}>
-          <input
+          {/* <input
             type="text"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
@@ -326,8 +326,8 @@ const MapComponent = () => {
                 handleSearch();
               }
             }}
-          />
-          <button
+          /> */}
+          {/* <button
             onClick={handleSearch}
             style={{
               width: "100%",
@@ -340,7 +340,7 @@ const MapComponent = () => {
             }}
           >
             Search
-          </button>
+          </button> */}
         </div>
 
         <div style={{ marginBottom: "1rem" }}>
@@ -356,7 +356,7 @@ const MapComponent = () => {
           onClick={exportRoutes}
           style={{
             padding: "0.5rem 1rem",
-            marginBottom: "1rem",
+            margin: "1rem",
             backgroundColor: "#4CAF50",
             color: "white",
             border: "none",
@@ -397,12 +397,12 @@ const MapComponent = () => {
                 <strong>Start Point:</strong>{" "}
                 {`${selectedRoute.startPoint.lat}, ${selectedRoute.startPoint.lng}`}
               </p>
-              <p>
+              {/* <p>
                 <strong>End Point:</strong>{" "}
                 {selectedRoute.endPoint
                   ? `${selectedRoute.endPoint.lat}, ${selectedRoute.endPoint.lng}`
                   : "Drawing in progress..."}
-              </p>
+              </p> */}
               <p>
                 <strong>Distance:</strong> {distance}
               </p>
