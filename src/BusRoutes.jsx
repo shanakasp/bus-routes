@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 const MapComponent = () => {
   const [isDrawing, setIsDrawing] = useState(false);
@@ -9,6 +9,22 @@ const MapComponent = () => {
   const mapRef = useRef(null);
   const polylineRef = useRef(null);
   const mouseMoveListenerRef = useRef(null);
+
+  useEffect(() => {
+    // Add keydown event listener
+    const handleKeyPress = (e) => {
+      if (e.key === "Enter" && isDrawing) {
+        stopDrawing();
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyPress);
+
+    // Cleanup
+    return () => {
+      window.removeEventListener("keydown", handleKeyPress);
+    };
+  }, [isDrawing]); // Add isDrawing to dependency array
 
   React.useEffect(() => {
     // Verify the API key
@@ -68,8 +84,6 @@ const MapComponent = () => {
   const handleMapClick = (event) => {
     if (!isDrawing) {
       startDrawing(event);
-    } else {
-      stopDrawing();
     }
   };
 
@@ -199,6 +213,13 @@ const MapComponent = () => {
           borderRight: "1px solid #ddd",
         }}
       >
+        <div style={{ marginBottom: "1rem" }}>
+          <p>Instructions:</p>
+          <ul>
+            <li>Click to start drawing</li>
+            <li>Press Enter to stop drawing</li>
+          </ul>
+        </div>
         <button
           onClick={exportRoutes}
           style={{
